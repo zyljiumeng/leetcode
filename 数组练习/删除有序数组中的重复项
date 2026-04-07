@@ -1,0 +1,15 @@
+class Solution {
+    public int removeDuplicates(int[] nums) {
+    if (nums.length == 0) return 0;
+    
+    int slow = 0; // 指向最后一个不重复元素的位置
+    for (int fast = 1; fast < nums.length; fast++) {
+        if (nums[fast] != nums[slow]) {
+            slow++; // 移动慢指针到下一个位置
+            nums[slow] = nums[fast]; // 将新元素放到 slow 位置
+        }
+    }
+    // slow 是索引，不重复元素的数量是 slow + 1
+    return slow + 1;
+}
+}
